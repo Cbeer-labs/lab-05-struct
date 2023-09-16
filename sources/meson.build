@@ -1,6 +1,5 @@
 file_list = files(
-  # remove it and add your own
-  'example.cpp',
+  'lab_functions.cpp',
 )
 deps = []
 inc_dirs = [

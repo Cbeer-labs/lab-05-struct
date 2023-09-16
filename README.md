@@ -66,8 +66,7 @@ std::cout << anna.Name << ", " << anna.LastName << std::endl;
 ## Задание
 Пусть есть структура `Student`
 ```cpp
-struct Student
-{
+struct Student {
   std::string Name;
   std::string GroupId;
   std::vector<unsigned> Ratings;

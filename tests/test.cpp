@@ -43,16 +43,16 @@ class TestLab : public ::testing::Test {
   }
 
  public:
-  std::vector<unsigned> Ratings1;
-  std::vector<unsigned> Ratings2;
-  std::vector<unsigned> Ratings3;
-  std::vector<unsigned> Ratings4;
-  std::vector<unsigned> Ratings5;
-  std::vector<unsigned> Ratings6;
-  std::vector<unsigned> Ratings7;
-  std::vector<unsigned> Ratings8;
-  std::vector<unsigned> Ratings9;
-  std::vector<unsigned> Ratings10;
+  std::vector<uint8_t> Ratings1;
+  std::vector<uint8_t> Ratings2;
+  std::vector<uint8_t> Ratings3;
+  std::vector<uint8_t> Ratings4;
+  std::vector<uint8_t> Ratings5;
+  std::vector<uint8_t> Ratings6;
+  std::vector<uint8_t> Ratings7;
+  std::vector<uint8_t> Ratings8;
+  std::vector<uint8_t> Ratings9;
+  std::vector<uint8_t> Ratings10;
   std::vector<std::string> Subjects1;
   std::vector<std::string> Subjects2;
   std::vector<std::string> Subjects3;
@@ -173,9 +173,9 @@ TEST_F(TestLab, CountExcellent) {
 // Создаем массив тех, кто получил по математике 5
 TEST_F(TestLab, VectorMathExcellent) {
   // базовый сценарий
-  std::vector<Student> students = {student1, student2, student3,  student4,
-                                   student5, student6, student10, student7,
-                                   student8, student9};
+  std::vector<Student> students = {student1, student2, student3, student4,
+                                   student5, student6, student7, student8,
+                                   student8, student9, student10};
   std::vector<Student> result = {student1, student2, student5};
   students = VectorMathExcellent(students);
   EXPECT_EQ(students, result);
@@ -185,7 +185,7 @@ TEST_F(TestLab, VectorMathExcellent) {
   result = {};
   students = VectorMathExcellent(students);
   EXPECT_EQ(students, result);
-  // без ребят с предметом математика
+  // без математики
   students = {student6, student7, student8, student9, student10};
   result = {};
   students = VectorMathExcellent(students);
@@ -205,10 +205,10 @@ TEST_F(TestLab, VectorMathExcellent) {
 // Массив уникальных названий групп
 TEST_F(TestLab, GroupsId) {
   // базовый сценарий
-  std::vector<Student> students = {student1, student2, student3,  student4,
-                                   student5, student6, student10, student7,
-                                   student8, student9};
-  std::vector<std::string> result = {"iu8-34", "iu9-54", "ibm3-12"};
+  std::vector<Student> students = {student1, student2, student3, student4,
+                                   student5, student6, student7, student8,
+                                   student8, student9, student10};
+  std::vector<std::string> result = {"ibm3-12", "iu8-34", "iu9-54"};
   std::vector<std::string> groups = GroupsId(students);
   EXPECT_EQ(result, groups);
   // все из одной группы
